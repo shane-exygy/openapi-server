@@ -1,4 +1,4 @@
-Experiment to use openapi tools to generate a fastapi server. Note that fastapi is beta support and not well documented.
+Experiment to use openapi tools to generate a fastapi server. Note that fastapi generation is beta support and not well documented.
 
 serve.yml was hand constructed using parts of CiviForm's openapi export for a test program.
 
