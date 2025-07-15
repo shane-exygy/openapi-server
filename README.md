@@ -9,6 +9,8 @@ serve.yml was hand constructed using parts of CiviForm's openapi export for a te
 
 ## Run the fast api service
 
+See [server docs](/server-python-fastapi/README.md) too
+
 ```
 cd server-python-fastapi/
 
