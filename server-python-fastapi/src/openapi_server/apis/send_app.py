@@ -8,3 +8,4 @@ LOG = logging.getLogger(__name__)
 class SendApi(BaseProgramsApi):
     async def send_app(self, application: Application) -> None:
         LOG.warning("In child")
+        LOG.warning(f"Payload {application}")
