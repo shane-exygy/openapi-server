@@ -5,6 +5,7 @@ import importlib
 import pkgutil
 
 from openapi_server.apis.programs_api_base import BaseProgramsApi
+from openapi_server.apis.send_app import SendApi
 import openapi_server.impl
 
 from fastapi import (  # noqa: F401
@@ -27,6 +28,9 @@ from pydantic import Field
 from typing import Any
 from typing_extensions import Annotated
 from openapi_server.models.application import Application
+import logging
+
+LOG = logging.getLogger(__name__)
 
 
 router = APIRouter()
