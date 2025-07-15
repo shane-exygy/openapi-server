@@ -4,6 +4,9 @@ serve.yml was hand constructed using parts of CiviForm's openapi export for a te
 
 ## Generate server
 
+[CLI docs](https://openapi-generator.tech/docs/installation/)
+[Fast API generators doc](https://openapi-generator.tech/docs/generators/python-fastapi)
+
 `openapi-generator-cli generate -i ./server.yml -g python-fastapi -o ./server-python-fastapi`
 
 
