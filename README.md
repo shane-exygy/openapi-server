@@ -15,3 +15,6 @@ cd server-python-fastapi/
 PYTHONPATH=src uvicorn openapi_server.main:app --host 0.0.0.0 --port 8080 
 ```
 
+## Make a test request
+
+curl -s -H 'accept: application/json' -H 'Content-Type: application/json' -K post_request.txt
