@@ -1,0 +1,159 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: civiform-dev@exygy.com
+    name: CiviForm Technical Support
+  description: desc
+  title: minimal-sample-program
+  version: "33"
+servers:
+- url: http://localhost:9000/api/v1/admin/programs/minimal-sample-program
+- url: https://localhost:9000/api/v1/admin/programs/minimal-sample-program
+paths:
+  /sendApp:
+    post:
+      description: Send app
+      operationId: send_app
+      requestBody:
+        content:
+          applicaton/json:
+            schema:
+              $ref: "#/components/schemas/application"
+        description: "The revision state of applications to include in results. When\
+          \ omitted, applications of all revision states are returned."
+        required: true
+      responses:
+        "200":
+          description: For valid requests.
+        "400":
+          description: Returned if any request parameters fail validation.
+        "401":
+          description: Returned if the API key is invalid or does not have access
+            to the program.
+      summary: Send App
+      tags:
+      - programs
+components:
+  schemas:
+    application:
+      properties:
+        applicant_id:
+          format: int32
+          title: applicant_id
+          type: integer
+        application:
+          $ref: "#/components/schemas/application_application"
+        application_id:
+          format: int32
+          title: application_id
+          type: integer
+        application_note:
+          nullable: true
+          title: application_note
+          type: string
+        create_time:
+          format: date-time
+          title: create_time
+          type: string
+        language:
+          example: en-US
+          title: language
+          type: string
+        program_name:
+          example: program-name-123
+          title: program_name
+          type: string
+        program_version_id:
+          format: int32
+          title: program_version_id
+          type: integer
+        revision_state:
+          example: CURRENT
+          title: revision_state
+          type: string
+        status:
+          nullable: true
+          title: status
+          type: string
+        status_last_modified_time:
+          format: date-time
+          nullable: true
+          title: status_last_modified_time
+          type: string
+        submit_time:
+          format: date-time
+          title: submit_time
+          type: string
+        submitter_type:
+          title: submitter_type
+          type: string
+        ti_email:
+          nullable: true
+          title: ti_email
+          type: string
+        ti_organization:
+          nullable: true
+          title: ti_organization
+          type: string
+      required:
+      - applicant_id
+      title: application
+      type: object
+    application_application_sample_date_question:
+      properties:
+        question_type:
+          title: question_type
+          type: string
+        date:
+          format: date
+          title: date
+          type: string
+      title: application_application_sample_date_question
+      type: object
+    application_application_sample_name_question:
+      properties:
+        question_type:
+          title: question_type
+          type: string
+        first_name:
+          title: first_name
+          type: string
+        last_name:
+          title: last_name
+          type: string
+        middle_name:
+          title: middle_name
+          type: string
+        suffix:
+          title: suffix
+          type: string
+      title: application_application_sample_name_question
+      type: object
+    application_application_sample_text_question__e:
+      properties:
+        question_type:
+          title: question_type
+          type: string
+        text:
+          title: text
+          type: string
+      title: application_application_sample_text_question__e
+      type: object
+    application_application:
+      properties:
+        sample_date_question:
+          $ref: "#/components/schemas/application_application_sample_date_question"
+        sample_name_question:
+          $ref: "#/components/schemas/application_application_sample_name_question"
+        sample_name_question___a:
+          $ref: "#/components/schemas/application_application_sample_name_question"
+        sample_name_question__g:
+          $ref: "#/components/schemas/application_application_sample_name_question"
+        sample_text_question__e:
+          $ref: "#/components/schemas/application_application_sample_text_question__e"
+      title: application_application
+      type: object
+  securitySchemes:
+    basicAuth:
+      scheme: basic
+      type: http

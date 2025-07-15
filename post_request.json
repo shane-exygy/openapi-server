@@ -1,0 +1,47 @@
+{
+    "applicant_id" : 123,
+    "application" : {
+      "sample_date_question" : {
+        "date" : "2023-01-02",
+        "question_type" : "DATE"
+      },
+      "sample_name_question" : {
+        "first_name" : "Homer",
+        "last_name" : "Simpson",
+        "middle_name" : "Jay",
+        "question_type" : "NAME",
+        "suffix" : "Jr."
+      },
+      "sample_name_question___a" : {
+        "first_name" : "Homer",
+        "last_name" : "Simpson",
+        "middle_name" : "Jay",
+        "question_type" : "NAME",
+        "suffix" : "Jr."
+      },
+      "sample_name_question__g" : {
+        "first_name" : "Homer",
+        "last_name" : "Simpson",
+        "middle_name" : "Jay",
+        "question_type" : "NAME",
+        "suffix" : "Jr."
+      },
+      "sample_text_question__e" : {
+        "question_type" : "TEXT",
+        "text" : "I love CiviForm!"
+      }
+    },
+    "application_id" : 456,
+    "application_note" : null,
+    "create_time" : "2023-05-25T13:46:15-07:00",
+    "language" : "en-US",
+    "program_name" : "minimal-sample-program",
+    "program_version_id" : 789,
+    "revision_state" : "CURRENT",
+    "status" : "Applied",
+    "status_last_modified_time" : null,
+    "submit_time" : "2023-05-26T13:46:15-07:00",
+    "submitter_type" : "APPLICANT",
+    "ti_email" : null,
+    "ti_organization" : null
+  }

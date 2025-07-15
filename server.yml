@@ -1,0 +1,147 @@
+openapi: 3.0.1
+info:
+  title: minimal-sample-program
+  description: desc
+  contact:
+    name: CiviForm Technical Support
+    email: civiform-dev@exygy.com
+  version: "33"
+servers:
+- url: http://localhost:9000/api/v1/admin/programs/minimal-sample-program
+- url: https://localhost:9000/api/v1/admin/programs/minimal-sample-program
+#security:
+#- basicAuth: []
+paths:
+  /sendApp:
+    post:
+      tags:
+      - programs
+      summary: Send App
+      description: Send app
+      operationId: send_app
+      requestBody:
+        description: "The revision state of applications to include in results. When\
+          \ omitted, applications of all revision states are returned."
+        required: true
+        content:
+          applicaton/json:
+            schema:
+              $ref: "#/components/schemas/application"
+
+      responses:
+        "200":
+          description: For valid requests.
+        "400":
+          description: Returned if any request parameters fail validation.
+        "401":
+          description: Returned if the API key is invalid or does not have access
+            to the program.
+components:
+  schemas:
+    application:
+      type: object
+      required: ["applicant_id"]
+      properties:
+        applicant_id:
+          type: integer
+          format: int32
+        application:
+          type: object
+          properties:
+            sample_date_question:
+              type: object
+              properties:
+                question_type:
+                  type: string
+                date:
+                  type: string
+                  format: date
+            sample_name_question:
+              type: object
+              properties:
+                question_type:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                middle_name:
+                  type: string
+                suffix:
+                  type: string
+            sample_name_question___a:
+              type: object
+              properties:
+                question_type:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                middle_name:
+                  type: string
+                suffix:
+                  type: string
+            sample_name_question__g:
+              type: object
+              properties:
+                question_type:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                middle_name:
+                  type: string
+                suffix:
+                  type: string
+            sample_text_question__e:
+              type: object
+              properties:
+                question_type:
+                  type: string
+                text:
+                  type: string
+        application_id:
+          type: integer
+          format: int32
+        application_note:
+          type: string
+          nullable: true
+        create_time:
+          type: string
+          format: date-time
+        language:
+          type: string
+          example: en-US
+        program_name:
+          type: string
+          example: program-name-123
+        program_version_id:
+          type: integer
+          format: int32
+        revision_state:
+          type: string
+          example: CURRENT
+        status:
+          type: string
+          nullable: true
+        status_last_modified_time:
+          type: string
+          format: date-time
+          nullable: true
+        submit_time:
+          type: string
+          format: date-time
+        submitter_type:
+          type: string
+        ti_email:
+          type: string
+          nullable: true
+        ti_organization:
+          type: string
+          nullable: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
